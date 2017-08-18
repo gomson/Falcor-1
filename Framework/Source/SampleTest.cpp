@@ -561,7 +561,7 @@ namespace Falcor
             for (uint32_t i = 0; i < memframeRanges.size() / 2; ++i)
             {
                 float startTime = memframeRanges[i].asFloat();
-                float endTime = memframeRanges[i].asFloat();
+                float endTime = memframeRanges[i + 1].asFloat();
                 std::shared_ptr<MemoryCheckTimeTask> memCheckTimeTask = std::make_shared<MemoryCheckTimeTask>(startTime, endTime);
                 mTimeTasks.push_back(memCheckTimeTask);
             }

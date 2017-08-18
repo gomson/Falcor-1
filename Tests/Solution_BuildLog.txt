@@ -1,0 +1,618 @@
+
+Microsoft Visual Studio 2015 Version 14.0.25420.1.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Rebuild All started: Project: Falcor, Configuration: ReleaseD3D12 x64 ------
+1>Build started 8/18/2017 9:08:30 AM.
+1>     1>
+1>PrepareForBuild:
+1>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\ReleaseD3D12\Lib\".
+1>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\ReleaseD3D12\Falcor.tlog\".
+1>       InitializeBuildStatus:
+1>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\ReleaseD3D12\Falcor.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+1>       PreBuildEvent:
+1>         Processing project file 'C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\PackmanDependency\dependencies.xml'
+1>       ClCompile:
+1>         imgui.cpp
+1>         imgui_demo.cpp
+1>         imgui_draw.cpp
+1>         dummy.cpp
+1>         glm.cpp
+1>         BlendState.cpp
+1>         Buffer.cpp
+1>         ComputeContext.cpp
+1>         ComputeStateObject.cpp
+1>         CopyContext.cpp
+1>         D3D12Buffer.cpp
+1>         D3D12ComputeContext.cpp
+1>         D3D12ComputeStateObject.cpp
+1>         D3D12CopyContext.cpp
+1>         D3D12Device.cpp
+1>         D3D12Fbo.cpp
+1>         D3D12GpuTimer.cpp
+1>         D3D12ProgramVars.cpp
+1>         D3D12QueryHeap.cpp
+1>         D3D12RasterizerState.cpp
+1>         D3D12RenderContext.cpp
+1>         D3D12GraphicsStateObject.cpp
+1>         D3D12Resource.cpp
+1>         D3D12ResourceViews.cpp
+1>         D3D12Sampler.cpp
+1>         D3D12Texture.cpp
+1>         D3D12UniformBuffer.cpp
+1>         D3D12Vao.cpp
+1>         D3D12DescriptorHeap.cpp
+1>         D3D12DescriptorPool.cpp
+1>         D3D12DescriptorSet.cpp
+1>         D3D12GpuFence.cpp
+1>         D3D12LowLevelContextData.cpp
+1>         D3D12ResourceAllocator.cpp
+1>         D3D12RootSignature.cpp
+1>         D3DFormats.cpp
+1>         D3DProgramVersion.cpp
+1>         D3DShader.cpp
+1>         D3DState.cpp
+1>         D3DWindow.cpp
+1>         DepthStencilState.cpp
+1>         DescriptorSet.cpp
+1>         Device.cpp
+1>         FBO.cpp
+1>         Formats.cpp
+1>         GpuTimer.cpp
+1>         DescriptorPool.cpp
+1>         ResourceAllocator.cpp
+1>         RootSignature.cpp
+1>         GraphicsStateObject.cpp
+1>         ProgramReflection.cpp
+1>         ProgramVars.cpp
+1>         ProgramVersion.cpp
+1>         RenderContext.cpp
+1>         Resource.cpp
+1>         ResourceViews.cpp
+1>         Sampler.cpp
+1>         StructuredBuffer.cpp
+1>         Texture.cpp
+1>         ConstantBuffer.cpp
+1>         TypedBuffer.cpp
+1>         VAO.cpp
+1>         VariablesBuffer.cpp
+1>         ArgList.cpp
+1>         SSAO.cpp
+1>         LeanMap.cpp
+1>         ParticleSystem.cpp
+1>         CSM.cpp
+1>         SkyBox.cpp
+1>         TAA.cpp
+1>         ToneMapping.cpp
+1>         GaussianBlur.cpp
+1>         Camera.cpp
+1>         CameraController.cpp
+1>         ComputeProgram.cpp
+1>         ComputeState.cpp
+1>         FboHelper.cpp
+1>         FullScreenPass.cpp
+1>         GraphicsProgram.cpp
+1>         Light.cpp
+1>         BasicMaterial.cpp
+1>         Material.cpp
+1>         MaterialEditor.cpp
+1>         MaterialHistory.cpp
+1>         MaterialSystem.cpp
+1>         Animation.cpp
+1>         AnimationController.cpp
+1>         AssimpModelImporter.cpp
+1>         BinaryImage.cpp
+1>         BinaryModelExporter.cpp
+1>         BinaryModelImporter.cpp
+1>         ModelImporter.cpp
+1>         SimpleModelImporter.cpp
+1>         Mesh.cpp
+1>         Model.cpp
+1>         ModelRenderer.cpp
+1>         ObjectPath.cpp
+1>         PathEditor.cpp
+1>         Program.cpp
+1>         GraphicsState.cpp
+1>         SceneEditor.cpp
+1>         SceneEditorRenderer.cpp
+1>         Scene.cpp
+1>         SceneExporter.cpp
+1>         SceneImporter.cpp
+1>         SceneRenderer.cpp
+1>         SceneUtils.cpp
+1>         TextureHelper.cpp
+1>         MultiRendererSample.cpp
+1>         Sample.cpp
+1>         SampleTest.cpp
+1>         Bitmap.cpp
+1>         DebugDrawer.cpp
+1>         Font.cpp
+1>         Gui.cpp
+1>         Logger.cpp
+1>         ParallelReduction.cpp
+1>         MonitorInfo.cpp
+1>         Picking.cpp
+1>         PixelZoom.cpp
+1>         Profiler.cpp
+1>         ProgressBarWin.cpp
+1>         Experiment.cpp
+1>         SingleThresholdMeasurement.cpp
+1>         PythonEmbedding.cpp
+1>         TextRenderer.cpp
+1>         VideoDecoder.cpp
+1>         VideoEncoder.cpp
+1>         VideoEncoderUI.cpp
+1>         Windows.cpp
+1>         Gizmo.cpp
+1>         VRController.cpp
+1>         VRDisplay.cpp
+1>         VRPlayArea.cpp
+1>         VRSystem.cpp
+1>         VRTrackerBox.cpp
+1>         VrFbo.cpp
+1>     1>
+1>VideoDecoder.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+1>         Falcor.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\ReleaseD3D12\Lib\Falcor.lib
+1>       PostBuildEvent:
+1>         "Falcor Core Directory Path:"
+1>         C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Framework\Source\\..\
+1>         "Solution Directory Path:"
+1>         C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\
+1>         "Project Directory Path:"
+1>         C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Framework\Source\
+1>         "Platform Name:"
+1>         x64
+1>         "Platform Short Name:"
+1>         x64
+1>         "Configuration:"
+1>         ReleaseD3D12
+1>         "Output Directory:"
+1>         C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\ReleaseD3D12\Lib\
+1>         "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Framework\Source\\..\\Externals\"
+1>         "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\\Bin\x64\Release\"
+1>         C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Framework\Source\\..\
+1>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+1>         MOVEPROJECTDATA
+1>         "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Framework\Source\\..\\Source\"
+1>         "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\\Bin\x64\Release\"
+1>         C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Framework\Source\\..\\Source\\ShadingUtils\BSDFs.slang
+1>         C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Framework\Source\\..\\Source\\ShadingUtils\Cameras.slang
+1>         C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Framework\Source\\..\\Source\\ShadingUtils\Helpers.slang
+1>         C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Framework\Source\\..\\Source\\ShadingUtils\Lights.slang
+1>         C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Framework\Source\\..\\Source\\ShadingUtils\Shading.slang
+1>         5 File(s) copied
+1>       FinalizeBuildStatus:
+1>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\ReleaseD3D12\Falcor.tlog\unsuccessfulbuild".
+1>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\ReleaseD3D12\Falcor.tlog\Falcor.lastbuildstate".
+1>
+1>Build succeeded.
+1>
+1>Time Elapsed 00:01:03.39
+2>------ Rebuild All started: Project: Shadows, Configuration: Release x64 ------
+3>------ Rebuild All started: Project: MultiPassPostProcess, Configuration: Release x64 ------
+4>------ Rebuild All started: Project: ProjectTemplate, Configuration: Release x64 ------
+5>------ Rebuild All started: Project: ShaderBuffers, Configuration: Release x64 ------
+6>------ Rebuild All started: Project: ShaderToy, Configuration: Release x64 ------
+7>------ Rebuild All started: Project: SimpleDeferred, Configuration: Release x64 ------
+8>------ Rebuild All started: Project: StereoRendering, Configuration: Release x64 ------
+9>------ Rebuild All started: Project: ModelViewer, Configuration: Release x64 ------
+10>------ Rebuild All started: Project: SceneEditor, Configuration: Release x64 ------
+11>------ Rebuild All started: Project: EnvMap, Configuration: Release x64 ------
+12>------ Rebuild All started: Project: NormalMapFiltering, Configuration: Release x64 ------
+13>------ Rebuild All started: Project: PostProcess, Configuration: Release x64 ------
+3>Build started 8/18/2017 9:09:34 AM.
+2>Build started 8/18/2017 9:09:34 AM.
+4>Build started 8/18/2017 9:09:34 AM.
+5>Build started 8/18/2017 9:09:34 AM.
+7>Build started 8/18/2017 9:09:34 AM.
+6>Build started 8/18/2017 9:09:34 AM.
+12>Build started 8/18/2017 9:09:34 AM.
+8>Build started 8/18/2017 9:09:34 AM.
+3>     1>
+3>PrepareForBuild:
+3>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\MultiPassPostProcess\MultiPas.282AAB9B.tlog\".
+3>       InitializeBuildStatus:
+3>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\MultiPassPostProcess\MultiPas.282AAB9B.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+10>Build started 8/18/2017 9:09:34 AM.
+3>       ClCompile:
+3>         MultiPassPostProcess.cpp
+11>Build started 8/18/2017 9:09:34 AM.
+6>     1>
+6>PrepareForBuild:
+6>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ShaderToy\ShaderToy.tlog\".
+4>     1>
+6>       InitializeBuildStatus:
+4>PrepareForBuild:
+4>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ProjectTemplate\ProjectTemplate.tlog\".
+6>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ShaderToy\ShaderToy.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+8>     1>
+7>     1>
+2>     1>
+5>     1>
+12>     1>
+4>       InitializeBuildStatus:
+8>PrepareForBuild:
+7>PrepareForBuild:
+5>PrepareForBuild:
+12>PrepareForBuild:
+2>PrepareForBuild:
+4>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ProjectTemplate\ProjectTemplate.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+8>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\StereoRendering\StereoRendering.tlog\".
+7>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\SimpleDeferred\SimpleDeferred.tlog\".
+5>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ShaderBuffers\ShaderBuffers.tlog\".
+12>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\NormalMapFiltering\NormalMa.28027295.tlog\".
+2>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\Shadows\Shadows.tlog\".
+9>Build started 8/18/2017 9:09:34 AM.
+7>       InitializeBuildStatus:
+5>       InitializeBuildStatus:
+12>       InitializeBuildStatus:
+2>       InitializeBuildStatus:
+8>       InitializeBuildStatus:
+7>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\SimpleDeferred\SimpleDeferred.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+5>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ShaderBuffers\ShaderBuffers.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+12>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\NormalMapFiltering\NormalMa.28027295.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\Shadows\Shadows.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+8>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\StereoRendering\StereoRendering.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+4>       ClCompile:
+6>       ClCompile:
+4>         ProjectTemplate.cpp
+6>         ShaderToy.cpp
+8>       ClCompile:
+7>       ClCompile:
+8>         StereoRendering.cpp
+5>       ClCompile:
+7>         SimpleDeferred.cpp
+10>     1>
+5>         ShaderBuffers.cpp
+10>PrepareForBuild:
+10>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\SceneEditor\SceneEditor.tlog\".
+12>       ClCompile:
+2>       ClCompile:
+10>       InitializeBuildStatus:
+12>         NormalMapFiltering.cpp
+2>         Shadows.cpp
+10>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\SceneEditor\SceneEditor.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+11>     1>
+11>PrepareForBuild:
+11>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\EnvMap\EnvMap.tlog\".
+10>       ClCompile:
+11>       InitializeBuildStatus:
+10>         SceneEditorSample.cpp
+11>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\EnvMap\EnvMap.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+13>Build started 8/18/2017 9:09:35 AM.
+11>       ClCompile:
+11>         EnvMap.cpp
+9>     1>
+9>PrepareForBuild:
+9>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ModelViewer\ModelViewer.tlog\".
+9>       InitializeBuildStatus:
+9>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ModelViewer\ModelViewer.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+9>       ClCompile:
+9>         ModelViewer.cpp
+13>     1>
+13>PrepareForBuild:
+13>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\PostProcess\PostProcess.tlog\".
+13>       InitializeBuildStatus:
+13>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\PostProcess\PostProcess.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+13>       ClCompile:
+13>         PostProcess.cpp
+6>       Link:
+3>       Link:
+6>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ShaderToy.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ShaderToy.exp
+3>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\MultiPassPostProcess.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\MultiPassPostProcess.exp
+4>       Link:
+4>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ProjectTemplate.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ProjectTemplate.exp
+3>         Generating code
+6>         Generating code
+4>         Generating code
+8>       Link:
+8>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\StereoRendering.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\StereoRendering.exp
+8>         Generating code
+5>       Link:
+5>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ShaderBuffers.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ShaderBuffers.exp
+4>         All 146 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+5>         Generating code
+4>         Finished generating code
+12>       Link:
+2>       Link:
+10>       Link:
+12>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\NormalMapFiltering.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\NormalMapFiltering.exp
+2>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\Shadows.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\Shadows.exp
+7>       Link:
+10>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\SceneEditor.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\SceneEditor.exp
+12>         Generating code
+7>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\SimpleDeferred.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\SimpleDeferred.exp
+2>         Generating code
+10>         Generating code
+7>         Generating code
+11>       Link:
+3>         All 514 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+11>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\EnvMap.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\EnvMap.exp
+6>         All 416 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+3>         Finished generating code
+11>         Generating code
+6>         Finished generating code
+9>       Link:
+9>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ModelViewer.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ModelViewer.exp
+9>         Generating code
+10>         All 740 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+11>         All 437 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+10>         Finished generating code
+11>         Finished generating code
+8>         All 947 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+13>       Link:
+13>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\PostProcess.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\PostProcess.exp
+8>         Finished generating code
+12>         All 708 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+13>         Generating code
+12>         Finished generating code
+2>         All 793 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+5>         All 805 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+2>         Finished generating code
+5>         Finished generating code
+7>         All 931 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+7>         Finished generating code
+13>         All 1169 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+13>         Finished generating code
+9>         All 1081 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+9>         Finished generating code
+4>         ProjectTemplate.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ProjectTemplate.exe
+4>         ProjectTemplate.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ProjectTemplate.pdb (Full PDB)
+6>         ShaderToy.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ShaderToy.exe
+6>         ShaderToy.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ShaderToy.pdb (Full PDB)
+3>         MultiPassPostProcess.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\MultiPassPostProcess.exe
+3>         MultiPassPostProcess.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\MultiPassPostProcess.pdb (Full PDB)
+3>       PostBuildEvent:
+3>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+3>         MOVEPROJECTDATA
+3>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Core\MultiPassPostProcess\""
+3>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+3>       FinalizeBuildStatus:
+3>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\MultiPassPostProcess\MultiPas.282AAB9B.tlog\unsuccessfulbuild".
+3>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\MultiPassPostProcess\MultiPas.282AAB9B.tlog\MultiPassPostProcess.lastbuildstate".
+3>
+3>Build succeeded.
+3>
+3>Time Elapsed 00:00:11.42
+6>       PostBuildEvent:
+4>       PostBuildEvent:
+4>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+6>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+4>         MOVEPROJECTDATA
+4>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Core\ProjectTemplate\""
+4>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+6>         MOVEPROJECTDATA
+6>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Core\ShaderToy\""
+6>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+4>       FinalizeBuildStatus:
+4>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ProjectTemplate\ProjectTemplate.tlog\unsuccessfulbuild".
+4>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ProjectTemplate\ProjectTemplate.tlog\ProjectTemplate.lastbuildstate".
+4>
+4>Build succeeded.
+4>
+4>Time Elapsed 00:00:11.24
+14>------ Rebuild All started: Project: ComputeShader, Configuration: Release x64 ------
+8>         StereoRendering.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\StereoRendering.exe
+8>         StereoRendering.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\StereoRendering.pdb (Full PDB)
+6>       FinalizeBuildStatus:
+6>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ShaderToy\ShaderToy.tlog\unsuccessfulbuild".
+6>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ShaderToy\ShaderToy.tlog\ShaderToy.lastbuildstate".
+6>
+6>Build succeeded.
+6>
+6>Time Elapsed 00:00:11.10
+15>------ Rebuild All started: Project: AmbientOcclusion, Configuration: Release x64 ------
+5>         ShaderBuffers.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ShaderBuffers.exe
+5>         ShaderBuffers.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ShaderBuffers.pdb (Full PDB)
+8>       PostBuildEvent:
+8>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+8>         MOVEPROJECTDATA
+8>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Core\StereoRendering\""
+8>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+14>Build started 8/18/2017 9:09:45 AM.
+12>         NormalMapFiltering.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\NormalMapFiltering.exe
+12>         NormalMapFiltering.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\NormalMapFiltering.pdb (Full PDB)
+15>Build started 8/18/2017 9:09:45 AM.
+5>       PostBuildEvent:
+5>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+8>       FinalizeBuildStatus:
+8>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\StereoRendering\StereoRendering.tlog\unsuccessfulbuild".
+5>         MOVEPROJECTDATA
+8>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\StereoRendering\StereoRendering.tlog\StereoRendering.lastbuildstate".
+5>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Core\ShaderBuffers\""
+14>     1>
+8>
+5>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+14>PrepareForBuild:
+8>Build succeeded.
+14>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ComputeShader\ComputeShader.tlog\".
+8>
+14>       InitializeBuildStatus:
+8>Time Elapsed 00:00:11.07
+14>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ComputeShader\ComputeShader.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+16>------ Rebuild All started: Project: FeatureDemo, Configuration: Release x64 ------
+11>         EnvMap.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\EnvMap.exe
+11>         EnvMap.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\EnvMap.pdb (Full PDB)
+15>     1>
+15>PrepareForBuild:
+15>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\AmbientOcclusion\AmbientOcclusion.tlog\".
+15>       InitializeBuildStatus:
+15>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\AmbientOcclusion\AmbientOcclusion.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+12>       PostBuildEvent:
+12>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+12>         MOVEPROJECTDATA
+12>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Effects\NormalMapFiltering\""
+12>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+5>       FinalizeBuildStatus:
+5>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ShaderBuffers\ShaderBuffers.tlog\unsuccessfulbuild".
+5>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ShaderBuffers\ShaderBuffers.tlog\ShaderBuffers.lastbuildstate".
+5>
+10>         SceneEditor.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\SceneEditor.exe
+10>         SceneEditor.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\SceneEditor.pdb (Full PDB)
+5>Build succeeded.
+5>
+5>Time Elapsed 00:00:11.32
+17>------ Rebuild All started: Project: Particles, Configuration: Release x64 ------
+12>       FinalizeBuildStatus:
+12>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\NormalMapFiltering\NormalMa.28027295.tlog\unsuccessfulbuild".
+12>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\NormalMapFiltering\NormalMa.28027295.tlog\NormalMapFiltering.lastbuildstate".
+12>
+12>Build succeeded.
+12>
+12>Time Elapsed 00:00:11.18
+14>       ClCompile:
+14>         ComputeShader.cpp
+18>------ Rebuild All started: Project: HashedAlpha, Configuration: Release x64 ------
+11>       PostBuildEvent:
+11>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+11>         MOVEPROJECTDATA
+11>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Effects\EnvMap\""
+11>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+16>Build started 8/18/2017 9:09:45 AM.
+11>       FinalizeBuildStatus:
+11>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\EnvMap\EnvMap.tlog\unsuccessfulbuild".
+11>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\EnvMap\EnvMap.tlog\EnvMap.lastbuildstate".
+11>
+11>Build succeeded.
+11>
+11>Time Elapsed 00:00:11.00
+19>------ Rebuild All started: Project: LearningWithEmbeddedPython, Configuration: Release x64 ------
+15>       ClCompile:
+15>         AmbientOcclusion.cpp
+10>       PostBuildEvent:
+10>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+10>         MOVEPROJECTDATA
+10>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Utils\SceneEditor\""
+10>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+16>     1>
+16>PrepareForBuild:
+16>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\FeatureDemo\FeatureDemo.tlog\".
+16>       InitializeBuildStatus:
+16>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\FeatureDemo\FeatureDemo.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2>         Shadows.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\Shadows.exe
+2>         Shadows.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\Shadows.pdb (Full PDB)
+10>       FinalizeBuildStatus:
+10>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\SceneEditor\SceneEditor.tlog\unsuccessfulbuild".
+10>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\SceneEditor\SceneEditor.tlog\SceneEditor.lastbuildstate".
+10>
+10>Build succeeded.
+10>
+10>Time Elapsed 00:00:11.11
+17>Build started 8/18/2017 9:09:45 AM.
+18>Build started 8/18/2017 9:09:45 AM.
+7>         SimpleDeferred.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\SimpleDeferred.exe
+7>         SimpleDeferred.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\SimpleDeferred.pdb (Full PDB)
+18>     1>
+18>PrepareForBuild:
+18>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\HashedAlpha\HashedAlpha.tlog\".
+18>       InitializeBuildStatus:
+18>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\HashedAlpha\HashedAlpha.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+17>     1>
+17>PrepareForBuild:
+17>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\Particles\Particles.tlog\".
+17>       InitializeBuildStatus:
+19>Build started 8/18/2017 9:09:45 AM.
+17>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\Particles\Particles.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2>       PostBuildEvent:
+2>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+2>         MOVEPROJECTDATA
+2>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Effects\Shadows\""
+2>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+16>       ClCompile:
+16>         FeatureDemo.cpp
+19>     1>
+19>PrepareForBuild:
+19>         Creating directory "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\LearningWithEmbeddedPython\Learning.B7D37434.tlog\".
+7>       PostBuildEvent:
+7>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+7>         MOVEPROJECTDATA
+7>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Core\SimpleDeferred\""
+7>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+19>       InitializeBuildStatus:
+19>         Creating "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\LearningWithEmbeddedPython\Learning.B7D37434.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+2>       FinalizeBuildStatus:
+2>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\Shadows\Shadows.tlog\unsuccessfulbuild".
+2>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\Shadows\Shadows.tlog\Shadows.lastbuildstate".
+2>
+2>Build succeeded.
+2>
+2>Time Elapsed 00:00:11.56
+7>       FinalizeBuildStatus:
+7>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\SimpleDeferred\SimpleDeferred.tlog\unsuccessfulbuild".
+18>       ClCompile:
+18>         HashedAlpha.cpp
+7>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\SimpleDeferred\SimpleDeferred.tlog\SimpleDeferred.lastbuildstate".
+17>       ClCompile:
+7>
+17>         Particles.cpp
+7>Build succeeded.
+7>
+7>Time Elapsed 00:00:11.43
+19>       ClCompile:
+19>         LearningWithEmbeddedPython.cpp
+9>         ModelViewer.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ModelViewer.exe
+9>         ModelViewer.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ModelViewer.pdb (Full PDB)
+9>       PostBuildEvent:
+9>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+9>         MOVEPROJECTDATA
+9>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Utils\ModelViewer\""
+9>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+13>         PostProcess.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\PostProcess.exe
+13>         PostProcess.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\PostProcess.pdb (Full PDB)
+9>       FinalizeBuildStatus:
+9>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ModelViewer\ModelViewer.tlog\unsuccessfulbuild".
+9>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ModelViewer\ModelViewer.tlog\ModelViewer.lastbuildstate".
+13>       PostBuildEvent:
+13>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+13>         MOVEPROJECTDATA
+13>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Effects\PostProcess\""
+13>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+9>
+9>Build succeeded.
+9>
+9>Time Elapsed 00:00:11.22
+13>       FinalizeBuildStatus:
+13>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\PostProcess\PostProcess.tlog\unsuccessfulbuild".
+13>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\PostProcess\PostProcess.tlog\PostProcess.lastbuildstate".
+13>
+13>Build succeeded.
+13>
+13>Time Elapsed 00:00:11.08
+19>         LiveTrainingDemo.cpp
+19>         ShaderToy.cpp
+16>         FeatureDemoControls.cpp
+15>       Link:
+15>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\AmbientOcclusion.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\AmbientOcclusion.exp
+15>         Generating code
+14>       Link:
+14>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ComputeShader.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ComputeShader.exp
+14>         Generating code
+18>       Link:
+18>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\HashedAlpha.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\HashedAlpha.exp
+18>         Generating code
+17>       Link:
+17>            Creating library C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\Particles.lib and object C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\Particles.exp
+17>         Generating code
+14>         All 484 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+15>         All 551 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+14>         Finished generating code
+15>         Finished generating code
+18>         All 496 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+18>         Finished generating code
+17>         All 582 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+17>         Finished generating code
+14>         ComputeShader.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ComputeShader.exe
+14>         ComputeShader.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\ComputeShader.pdb (Full PDB)
+14>       PostBuildEvent:
+14>         LOCALAPPDATA=C:\Users\ashwinv\AppData\Local
+14>         MOVEPROJECTDATA
+14>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Samples\Core\ComputeShader\""
+14>         ""C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\""
+14>       FinalizeBuildStatus:
+14>         Deleting file "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ComputeShader\ComputeShader.tlog\unsuccessfulbuild".
+14>         Touching "C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\Int\x64\Release\ComputeShader\ComputeShader.tlog\ComputeShader.lastbuildstate".
+14>
+14>Build succeeded.
+14>
+14>Time Elapsed 00:00:05.46
+17>         Particles.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\Particles.exe
+17>         Particles.vcxproj -> C:\Falcor\GitHub\master\GitHub_DailyTests\TS_ReleaseD3D12\Bin\x64\Release\Particles.pdb (Full PDB)

@@ -339,22 +339,35 @@ namespace Falcor
             //  Basic Check.
             virtual bool isActive(SampleTest * sampleTest)
             {
-                return mIsActive;
+                if (sampleTest->mCurrentTime >= mStartTime && sampleTest->mCurrentTime <= mEndTime)
+                {
+                    return true;
+                }
+                else if(sampleTest->mCurrentTime >= mEndTime && mIsActive)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
 
             //  On Frame Begin.
             virtual void onFrameBegin(SampleTest * sampleTest)
             {
-
+ 
             }
 
             //  On Frame End.
             virtual void onFrameEnd(SampleTest * sampleTest)
             {
-                if (sampleTest->mCurrentTime >= mStartTime && sampleTest->mCurrentTime <= mEndTime && !mIsActive)
+                if (!mIsActive == true)
                 {
-                    mIsActive = true;
+                    mIsActive = true;                    
                     sampleTest->getMemoryStatistics(mStartCheck);
+                    mStartCheck.effectiveTime = sampleTest->mCurrentTime;
                 }
 
                 if (sampleTest->mCurrentTime >= mEndTime && mIsActive)
@@ -364,6 +377,7 @@ namespace Falcor
                     mIsTaskComplete = true;
  
                     mDifference = (int64_t)mEndCheck.currentlyUsedVirtualMemory - (int64_t)mStartCheck.currentlyUsedVirtualMemory;
+                    mEndCheck.effectiveTime = sampleTest->mCurrentTime;
                 }
             }
             

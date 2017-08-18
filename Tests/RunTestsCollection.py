@@ -28,9 +28,8 @@ def json_object_has_attribute(json_data, attribute_name):
 
 
 # Read the json data, and read and verify the tests collections source.
-def read_and_verify_tests_collections_source(json_filename):
+def verify_tests_collections_source(json_filename):
 
-    
     try:
         # Try and open the json file.
         with open(json_filename) as json_file:
@@ -63,7 +62,7 @@ def read_and_verify_tests_collections_source(json_filename):
 
     # Exception Handling.
     except (IOError, OSError) as json_open_error:
-        raise TestsCollectionError('Error opening Tests Collection json file : ' + json_filename)
+        raise TestsCollectionError('Error opening Tests Collection json file : ' + json_filename + " \n " + json_open_error.args)
         
 
 
@@ -75,7 +74,6 @@ def verify_tests_collection(tests_name, tests_data):
     if not json_object_has_attribute(tests_data, "Repository Target"):
         raise TestsCollectionError('Error - "Repository Target" is not defined in ' + tests_name)
         
-
     # Check for a Branch Target.
     if not json_object_has_attribute(tests_data, "Source Branch Target"):
         raise TestsCollectionError('Error - "Branch Target" is not defined in ' + tests_name)
@@ -83,11 +81,11 @@ def verify_tests_collection(tests_name, tests_data):
     # Check for a Branch Target.
     if not json_object_has_attribute(tests_data, "Compare Branch Target"):
         raise TestsCollectionError('Error - "Branch Target" is not defined in ' + tests_name)
-        
+
     # Check for a Repository Target.
     if not json_object_has_attribute(tests_data, "Destination Target"):
         raise TestsCollectionError('Error - "Destination Target" is not defined in ' + tests_name)
-        
+
 
     # Check for a Repository Target.
     if not json_object_has_attribute(tests_data, "Compare Reference Target"):
@@ -97,7 +95,6 @@ def verify_tests_collection(tests_name, tests_data):
     if not json_object_has_attribute(tests_data, "Generate Reference Target"):
         raise TestsCollectionError('Error - "Compare Reference Target" is not defined in ' + tests_name)
         
-
     # Check for a Tests Array.
     if not json_object_has_attribute(tests_data, "Tests"):
         raise TestsCollectionError('Error - "Tests" is not defined in ' + tests_name)
@@ -116,19 +113,44 @@ def verify_tests_collection(tests_name, tests_data):
     return 0
 
 
-def verify_all_tests_collection_ran_successfully(tests_collections_results):
+
+# Verify that all the tests collection, sets, groups and single runs ran successfully.
+def verify_all_tests_collections_ran_successfully(verify_tests_collections, tests_collections_results):
     
-    verify_tests_collections = {}
     verify_tests_collections['Success'] = True
-    verify_tests_collections['Error Messages'] = {}
+    verify_tests_collections['Test Collections Errors'] = {}
+    verify_tests_collections['Test Set Errors'] = {}
+    verify_tests_collections['Test Group Errors'] = {}
+    verify_tests_collections['Test Runs Errors'] = {}
 
     for tests_collection_name in tests_collections_results:
         
-        if tests_collections_results[tests_collection_name]['Tests Collection Error Status'] == True:
+        if tests_collections_results[tests_collection_name]['Tests Collection Error Status'] :
+            
             verify_tests_collections['Success'] = False
+            verify_tests_collections['Test Collections Errors'][tests_collection_name] = tests_collections_results[tests_collection_name]['Tests Collection Error Message']
+
+        else:
+
+            for current_tests_set_index in tests_collections_results[tests_collection_name]['Tests Sets Results']:
+                current_tests_set_result = tests_collections_results[tests_collection_name]['Tests Sets Results'][current_tests_set_index]
+                verify_tests_sets = {}
+                
 
 
-    return verify_tests_collections
+def verify_sets_in_collection(tests_collection_result):
+
+    errors = []
+
+    for tests_set_run_result in tests_collection_result['Tests Sets Results']:
+
+        if tests_set_run_result['Tests Set Error Status']:
+
+            errors.append(tests_set_run_result['Tests Set Error Message'])
+
+        else: 
+            errors_and_results = {}
+            errors_and_results = rTS.verify_groups_in_set(tests_set_run_result)
 
 
 # Run all of the Tests Collections.
@@ -137,58 +159,57 @@ def run_tests_collections(json_data):
     tests_collections_run_results = {}
     tests_collections_run_results = json_data["Tests Collections"]
 
-    print tests_collections_run_results
     # Run each test collection.
-    for current_tests_collection_name in tests_collections_run_results:
+    for tests_collection_name in tests_collections_run_results:
         
-        tests_collections_run_results[current_tests_collection_name]['Tests Sets Results'] = {}
-        tests_collections_run_results[current_tests_collection_name]['Tests Collection Error Status'] = False
-        tests_collections_run_results[current_tests_collection_name]['Tests Collection Error Message'] = ""
+        tests_collections_run_results[tests_collection_name]['Tests Sets Results'] = {}
+        tests_collections_run_results[tests_collection_name]['Tests Collection Error Status'] = False
+        tests_collections_run_results[tests_collection_name]['Tests Collection Error Message'] = ""
 
-        current_tests_collection_results = tests_collections_run_results[current_tests_collection_name]['Tests Sets Results']
+        current_tests_collection_results = tests_collections_run_results[tests_collection_name]['Tests Sets Results']
 
         # Run each Test Set.
-        for index, current_tests_set in enumerate(tests_collections_run_results[current_tests_collection_name]['Tests']):
+        for index, current_tests_set in enumerate(tests_collections_run_results[tests_collection_name]['Tests']):
+            print current_tests_set
 
-            # The Clone Directory is the Destination Target + The Branch Target + the Test Collection Name + the Build Configuration Name.
-            # For the momemnt, do not add multiple solutions to the same Test Collection, because that will create overlapping clone targets.
-            clone_directory = tests_collections_run_results[current_tests_collection_name]["Destination Target"] 
-            clone_directory = clone_directory +  tests_collections_run_results[current_tests_collection_name]["Source Branch Target"]
-            clone_directory = clone_directory + '\\' +  current_tests_collection_name + '\\'
+            clone_directory = tests_collections_run_results[tests_collection_name]["Destination Target"] 
+            clone_directory = clone_directory +  tests_collections_run_results[tests_collection_name]["Source Branch Target"]
+            clone_directory = clone_directory + '\\' +  tests_collection_name + '\\'
             clone_directory = clone_directory + '\\' + os.path.splitext(os.path.basename(current_tests_set["Tests Set"]))[0] + '\\'
 
             # Clear the directory.
             if helpers.directory_clean_or_make(clone_directory) == None:
-                tests_collections_run_results[current_tests_collection_name]['Tests Collection Error Status'] = True
-                tests_collections_run_results[current_tests_collection_name]['Tests Collection Error Message'] = "Could not clean or make directory - please try manually removing the directory : " + clone_directory
+                tests_collections_run_results[tests_collection_name]['Tests Collection Error Status'] = True
+                tests_collections_run_results[tests_collection_name]['Tests Collection Error Message'] = "Could not clean or make directory - please try manually removing the directory : " + clone_directory
 
             # Try to clone the repository                
             try:
                 # Clone the Repositroy to the Clone Directory.
-                cloneRepo.clone(tests_collections_run_results[current_tests_collection_name]["Repository Target"], tests_collections_run_results[current_tests_collection_name]["Source Branch Target"], clone_directory)
+                cloneRepo.clone(tests_collections_run_results[tests_collection_name]["Repository Target"], tests_collections_run_results[tests_collection_name]["Source Branch Target"], clone_directory)
             except (cloneRepo.CloneRepoCloneError, cloneRepo.CloneRepoCleanOrMakeError) as clone_repo_error:
-                tests_collections_run_results[current_tests_collection_name]['Tests Collection Error Status'] = True
-                tests_collections_run_results[current_tests_collection_name]['Tests Collection Error Message'] = "Could not clone the repository. Please try manually removing the directory it is to be cloned into, and verifying the target and branch. " + clone_directory
+                tests_collections_run_results[tests_collection_name]['Tests Collection Error Status'] = True
+                tests_collections_run_results[tests_collection_name]['Tests Collection Error Message'] = "Could not clone the repository. \n " + clone_directory + "  Please try manually removing the directory it is to be cloned into, and verifying the target and branch. \n " + clone_repo_error.args
                     
             # Get the Results and Reference Directory.
-            common_directory_path = tests_collections_run_results[current_tests_collection_name]["Source Branch Target"] + "\\" + current_tests_collection_name + '\\'
+            common_directory_path = tests_collections_run_results[tests_collection_name]["Source Branch Target"] + "\\" + tests_collection_name + '\\'
             results_directory = 'TestsResults' + '\\' + common_directory_path
-            reference_directory = tests_collections_run_results[current_tests_collection_name]['Compare Reference Target'] + '\\'  + machine_configs.machine_name + '\\' + common_directory_path
+            reference_directory = tests_collections_run_results[tests_collection_name]['Compare Reference Target'] + '\\'  + machine_configs.machine_name + '\\' + common_directory_path
             
             # Run the Tests Set.
-            test_results = rTS.run_tests_set(clone_directory, False, tests_collections_run_results[current_tests_collection_name]['Tests Configs Target'] + current_tests_set["Tests Set"], results_directory, reference_directory)
+            test_results = rTS.run_tests_set(clone_directory, False, tests_collections_run_results[tests_collection_name]['Tests Configs Target'] + current_tests_set["Tests Set"], results_directory, reference_directory)
 
             #   Get the Tests Groups Results.   
             rTS.verify_tests_groups_expected_output(test_results['Tests Groups'])
 
             #   
-            current_tests_collection_results[index] = test_results;
+            current_tests_collection_results[index] = test_results
 
     # 
     return tests_collections_run_results
 
 
-def check_tests_collections_results(tests_collections_run_results):
+# Build the Tests Collections Results.
+def build_tests_collections_results(tests_collections_run_results):
 
     for current_tests_collection_name in tests_collections_run_results:
 
@@ -197,45 +218,63 @@ def check_tests_collections_results(tests_collections_run_results):
             # Get the Tests Set Result.
             current_tests_set_result = tests_collections_run_results[current_tests_collection_name]['Tests Sets Results'][current_tests_set_index]
                         
-            rTS.get_tests_set_results(current_tests_set_result)
+            rTS.build_tests_set_results(current_tests_set_result)
 
 
-
+# Write the output 
 def write_tests_collection_html(tests_collections_run_results):
 
     html_outputs = []
+
     for current_test_collection_name in tests_collections_run_results:
-            for current_test_set_index in tests_collections_run_results[current_test_collection_name]['Tests Sets Results']:
-                current_test_set_result = tests_collections_run_results[current_test_collection_name]['Tests Sets Results'][current_test_set_index]
-                tests_set_html_result = write_test_results_to_html.write_test_set_results_to_html(current_test_set_result)
 
-                # Output the file to disk.
-                html_file_output = current_test_set_result['Tests Set Results Directory'] + '\\' + "TestResults_" + current_test_set_result['Tests Set Filename']  + ".html" 
-                html_file = open(html_file_output, 'w')
-                html_file.write(tests_set_html_result)
-                html_file.close()
+        for current_test_set_index in tests_collections_run_results[current_test_collection_name]['Tests Sets Results']:
+                
+            current_test_set_result = tests_collections_run_results[current_test_collection_name]['Tests Sets Results'][current_test_set_index]
 
-                current_html_output = {}
-                current_html_output['Test Collection Name'] = current_test_collection_name
-                current_html_output['Tests Set Filename'] = current_test_set_result['Tests Set Filename'] 
-                current_html_output['HTML File'] = html_file_output
-                current_html_output['Machine'] = machine_configs.machine_name
+            tests_set_html_result = write_test_results_to_html.write_test_set_results_to_html(current_test_set_result)
 
-                html_outputs.append(current_html_output)
+            # Output the file to disk.
+            html_file_output = current_test_set_result['Tests Set Results Directory'] + '\\' + "TestResults_" + current_test_set_result['Tests Set Filename']  + ".html" 
+            html_file = open(html_file_output, 'w')
+            html_file.write(tests_set_html_result)
+            html_file.close()
+
+            current_html_output = {}
+            current_html_output['Test Collection Name'] = current_test_collection_name
+            current_html_output['Tests Set Filename'] = current_test_set_result['Tests Set Filename'] 
+            current_html_output['HTML File'] = html_file_output
+            current_html_output['Machine'] = machine_configs.machine_name
+
+            html_outputs.append(current_html_output)
 
     return html_outputs
 
 
+
+# Dispath the email
 def dispatch_email(html_outputs):
     date_and_time = date.today().strftime("%m-%d-%y")
+
     subject = ' Falcor Automated Tests - ' + machine_configs.machine_name + ' : ' + date_and_time
+
     dispatcher = 'NvrGfxTest@nvidia.com'
+
     recipients = str(open(machine_configs.machine_email_recipients, 'r').read())
+
     subprocess.call(['blat.exe', '-install', 'mail.nvidia.com', dispatcher])
-    command = ['blat.exe', '-to', recipients, '-subject', subject, '-body', "   "]
+
+    command = ['blat.exe', '-to', recipients, '-body', "   "]
+
     for html_output in html_outputs:
+
         command.append('-attach')
+
         command.append(html_output['HTML File'])
+
+
+    command.append('-subject', subject)
+
     subprocess.call(command)
 
 
@@ -254,21 +293,32 @@ def main():
     # Parse the Arguments.
     args = parser.parse_args()
 
-    # 
+
+    # Try to Parse the json file, and handle any errors.
     try: 
-        json_data = read_and_verify_tests_collections_source(args.tests_collection)
+        json_data = verify_tests_collections_source(args.tests_collection)
+
     except TestsCollectionError as tests_collection_error:
-        print (tests_collection_error.args)
+        print "\n Error Parsing source file : " + args.tests_collection + " \n  " + (tests_collection_error.args)
+        return None
 
     #   
     if json_data is None:
+
         print 'Falied to Verify Tests Collections Source!'
+
         return None
 
-    # 
+    # Try and run the tests collections.
     tests_collections_run_results = run_tests_collections(json_data)
-    check_tests_collections_results(tests_collections_run_results)
+
+    # Build the Tests Collections Results.
+    build_tests_collections_results(tests_collections_run_results)
+
+    # Write the Tests Collection HTML.
     html_outputs = write_tests_collection_html(tests_collections_run_results)
+
+    # Dispatch the email.
     dispatch_email(html_outputs)
     
 

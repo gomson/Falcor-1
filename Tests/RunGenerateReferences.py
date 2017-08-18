@@ -29,13 +29,14 @@ def main():
 
     # Verify the Tests Collections.   
     try:
-        json_data = rTC.read_and_verify_tests_collections_source(args.tests_collection)
+        json_data = rTC.verify_tests_collections_source(args.tests_collection)
     
     # Exception handling.
     except rTC.TestsCollectionError as tests_collection_error: 
-        print tests_collection_error.args
-        return None
 
+        print "Error Verifying the Tests Collections Source : " +  args.tests_collection + " \n " + tests_collection_error.args
+
+        return None
 
     #   Run the Tests Collections.
     try:
@@ -43,12 +44,14 @@ def main():
 
     # Exception handling.
     except rTC.TestsCollectionError as tests_collection_error:     
-        print tests_collection_error.args
+        
+        print "Error Running the Tests Collections : " +  args.tests_collection + " \n " + tests_collection_error.args
+        
         return None
 
     
     # Verify the Results.
-    verify_result = rTC.verify_all_tests_collection_ran_successfully(tests_collections_results)
+    verify_result = rTC.verify_all_tests_collections_ran_successfully(tests_collections_results)
 
 
     if verify_result['Success'] is True :  
@@ -57,11 +60,13 @@ def main():
                 
             # 
             destination_reference_directory = json_data['Tests Collections'][current_test_collections]['Generate Reference Target'] + '\\' + machine_configs.machine_name + '\\' + json_data['Tests Collections'][current_test_collections]['Source Branch Target'] + '\\' + current_test_collections + '\\'
+
             helpers.directory_clean_or_make(destination_reference_directory)
+
             helpers.directory_copy('TestsResults\\' + json_data['Tests Collections'][current_test_collections]['Source Branch Target'] + '\\' + current_test_collections + '\\', destination_reference_directory)
 
     else:
-        print "All tests did not run successfully. No references were generated."
+        print "\n All tests did not run successfully. No references were generated. \n"
 
 #
 if __name__ == '__main__':
