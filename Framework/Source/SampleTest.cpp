@@ -288,17 +288,15 @@ namespace Falcor
 
             if (memTask != nullptr)
             {
+                rapidjson::Value jcvalue;
+                jcvalue.SetObject();
+                jcvalue.AddMember("Start Check Time", memTask->mStartCheck.effectiveTime, jsonAllocator);
+                jcvalue.AddMember("End Check Time", memTask->mEndCheck.effectiveTime, jsonAllocator);
+                jcvalue.AddMember("SCCUVM", memTask->mStartCheck.currentlyUsedVirtualMemory, jsonAllocator);
+                jcvalue.AddMember("ECCUVM", memTask->mEndCheck.currentlyUsedVirtualMemory, jsonAllocator);
+                jcvalue.AddMember("Difference", memTask->mDifference, jsonAllocator);
 
-                rapidjson::Value scfFile;
-                scfFile.SetObject();
-                scfFile.AddMember("Start Check Time", memTask->mStartCheck.effectiveTime, jsonAllocator);
-                scfFile.AddMember("End Check Time", memTask->mEndCheck.effectiveTime, jsonAllocator);
-                scfFile.AddMember("Start Check Currently Used Virtual Memory", memTask->mStartCheck.currentlyUsedVirtualMemory, jsonAllocator);
-                scfFile.AddMember("End Check Currently Used Virtual Memory", memTask->mEndCheck.currentlyUsedVirtualMemory, jsonAllocator);
-                int64_t difference = (int64_t)memoryCheckRange.endCheck.currentlyUsedVirtualMemory - (int64_t)memoryCheckRange.startCheck.currentlyUsedVirtualMemory;
-                int64_t
-
-                mrArray.PushBack(scfFile, jsonAllocator);
+                mrArray.PushBack(jcvalue, jsonAllocator);
             }
         }
 
@@ -552,6 +550,22 @@ namespace Falcor
         {
             //  Memory Check Frames.
             std::vector<ArgList::Arg> memframeRanges = mArgList.getValues("memtimes");
+
+            if (memframeRanges.size() % 2 != 0)
+            {
+                logError("Please provide a start and end frame for each Performance Frame Range. The extra one will be discarded.");
+                memframeRanges.pop_back();
+
+            }
+
+            for (uint32_t i = 0; i < memframeRanges.size() / 2; ++i)
+            {
+                float startTime = memframeRanges[i].asFloat();
+                float endTime = memframeRanges[i].asFloat();
+                std::shared_ptr<MemoryCheckTimeTask> memCheckTimeTask = std::make_shared<MemoryCheckTimeTask>(startTime, endTime);
+                mTimeTasks.push_back(memCheckTimeTask);
+            }
+
         }
 
         //  

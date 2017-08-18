@@ -336,6 +336,12 @@ namespace Falcor
             //  
             MemoryCheckTimeTask(float memoryCheckRangeBeginTime, float memoryCheckRangeBeginEnd) : TimeTask(TaskType::MemoryCheckTask, memoryCheckRangeBeginTime, memoryCheckRangeBeginEnd) {};
 
+            //  Basic Check.
+            virtual bool isActive(SampleTest * sampleTest)
+            {
+                return mIsActive;
+            }
+
             //  On Frame Begin.
             virtual void onFrameBegin(SampleTest * sampleTest)
             {
@@ -356,12 +362,15 @@ namespace Falcor
                     sampleTest->getMemoryStatistics(mEndCheck);
                     mIsActive = false;
                     mIsTaskComplete = true;
+ 
+                    mDifference = (int64_t)mEndCheck.currentlyUsedVirtualMemory - (int64_t)mStartCheck.currentlyUsedVirtualMemory;
                 }
             }
             
 
             MemoryCheck mStartCheck;
             MemoryCheck mEndCheck;
+            int64_t mDifference = 0;
             bool mIsActive = false;
         };
 
@@ -377,17 +386,6 @@ namespace Falcor
             }
 
 
-            //  On Frame Begin.
-            virtual void onFrameBegin(SampleTest * sampleTest)
-            {
-                if (mCaptureTime <= sampleTest->mCurrentTime && !mIsTaskComplete)
-                {
-                    //  Sneakily set the time of the program! For perfect pictures.
-                    sampleTest->mCurrentTime = mCaptureTime;
-
-                    sampleTest->toggleText(false);
-                }
-            }
 
             //  On Frame Begin.
             virtual void onFrameBegin(SampleTest * sampleTest)
