@@ -92,7 +92,7 @@
         },
         "NormalMapFilteringTest":
         {
-            "Enabled" : "False",
+            "Enabled" : "True",
             "Project Name" : "NormalMapFiltering",
             "Project Tests Args" :
             [
