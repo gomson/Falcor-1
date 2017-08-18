@@ -46,6 +46,6 @@ rem This also changes the FALCOR_CORE_DIRECTORY
 start /wait /b %1BuildScripts\PatchFalcorProps\PatchFalcorPropertySheet.exe %1 %2 %falcor_backend%
 
 rem Call Update Dependencies - Runs packman.
-call %1\..\PackmanDependency\update_dependencies.bat 
+call %1\..\update_dependencies.bat
 
 
