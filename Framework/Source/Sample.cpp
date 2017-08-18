@@ -245,6 +245,8 @@ namespace Falcor
 
     void Sample::renderGUI()
     {
+        mpGui->beginFrame();
+
         constexpr char help[] =
             "  'F1'      - Show\\Hide text\n"
             "  'F2'      - Show\\Hide GUI\n"
@@ -353,30 +355,22 @@ namespace Falcor
         }
     }
 
-
-    //  
-    std::string Sample::captureScreen(bool isReturnWithAbsolutePath /*=**/, const std::string explicitImagePrefix /*= ""*/, const std::string explicitOutputDirectory /*= ""*/)
+    std::string Sample::captureScreen(const std::string explicitFilename, const std::string explicitOutputDirectory)
     {
-        std::string filename = "";
-
            
-        std::string imagePrefix = getExecutableName();
+        std::string filename = getExecutableName();
 
-        if (explicitImagePrefix != "")
-        {
-            imagePrefix = explicitImagePrefix;
-        }
+        if (explicitFilename != "")
+            filename = explicitFilename;
 
         std::string outputDirectory = getExecutableDirectory();
 
-        if (outputDirectory != "")
-        {
+        if (explicitOutputDirectory != "") 
             outputDirectory = explicitOutputDirectory;
-        }
  
 
         std::string pngFile;
-        if (findAvailableFilename(imagePrefix, outputDirectory, "png", pngFile))
+        if (findAvailableFilename(filename, outputDirectory, "png", pngFile))
         {
             Texture::SharedPtr pTexture = gpDevice->getSwapChainFbo()->getColorTexture(0);
             pTexture->captureToFile(0, 0, pngFile);
@@ -389,15 +383,7 @@ namespace Falcor
             return "";
         }
 
-        //
-        if (isReturnWithAbsolutePath) 
-        {
-            return pngFile;
-        }
-        else
-        {
-            return getFilenameFromPath(pngFile);
-        }
+         return pngFile;
     }
 
     void Sample::initUI()
