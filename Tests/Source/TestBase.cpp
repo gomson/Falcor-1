@@ -60,6 +60,20 @@ void TestBase::init(bool initDevice /* = false */)
     onInit();
 }
 
+//  Parse Args.
+void TestBase::parseArgs(int argc, char* argv[])
+{
+    std::string commandline = "";
+
+    std::string arguments = "";
+    for (uint32_t i = 0; i < argc; i++)
+    {
+        arguments = std::string(argv[i]) + " ";
+    }
+
+    mArgs.parseCommandLine(commandline);
+}
+
 void TestBase::run()
 {
     std::vector<TestData> testResults = runTests();

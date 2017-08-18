@@ -471,10 +471,11 @@ float BlendStateTest::applyBlendFuncAlpha(float srcAlpha, float dstAlpha, float 
     }
 }
 
-int main()
+int main(int argc, char* argv[])
 {
     BlendStateTest bst;
     bst.init(true);
+    bst.parseArgs(argc, argv);
     bst.run();
     return 0;
 }

@@ -59,6 +59,7 @@ public:
 
     virtual ~TestBase();
     void init(bool initDevice = false);
+    void parseArgs(int argc, char* argv[]);
     void run();
 
 protected:
@@ -122,6 +123,7 @@ private:
     std::vector<TestData> runTests();
     void GenerateXML(const std::vector<std::string>& xmlStrings);
     std::string XMLFromTestResult(const TestData& r);
+    ArgList mArgs;
 
     Window::SharedPtr mpWindow; //used for dummy device creation
 };
