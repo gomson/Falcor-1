@@ -534,28 +534,42 @@ void FeatureDemo::setActiveCameraAspectRatio()
 
 void FeatureDemo::onInitializeTesting()
 {
-    std::vector<ArgList::Arg> model = mArgList.getValues("loadmodel");
-    if (!model.empty())
+    if (mArgList.argExists("loadmodel"))
     {
-        loadModel(model[0].asString(), false);
+        std::vector<ArgList::Arg> model = mArgList.getValues("loadmodel");
+        if (!model.empty())
+        {
+            loadModel(model[0].asString(), false);
+        }
     }
 
-    std::vector<ArgList::Arg> scene = mArgList.getValues("loadscene");
-    if (!scene.empty())
+    if (mArgList.argExists("loadscene"))
     {
-        loadScene(scene[0].asString(), false);
+        std::vector<ArgList::Arg> scene = mArgList.getValues("loadscene");
+        if (!scene.empty())
+        {
+            loadScene(scene[0].asString(), false);
+        }
     }
 
-    std::vector<ArgList::Arg> cameraPos = mArgList.getValues("camerapos");
-    if (!cameraPos.empty())
+
+    if (mArgList.argExists("camerapos"))
     {
-        mpSceneRenderer->getScene()->getActiveCamera()->setPosition(glm::vec3(cameraPos[0].asFloat(), cameraPos[1].asFloat(), cameraPos[2].asFloat()));
+
+        std::vector<ArgList::Arg> cameraPos = mArgList.getValues("camerapos");
+        if (!cameraPos.empty())
+        {
+            mpSceneRenderer->getScene()->getActiveCamera()->setPosition(glm::vec3(cameraPos[0].asFloat(), cameraPos[1].asFloat(), cameraPos[2].asFloat()));
+        }
     }
 
-    std::vector<ArgList::Arg> cameraTarget = mArgList.getValues("cameratarget");
-    if (!cameraTarget.empty())
+    if (mArgList.argExists("cameratarget"))
     {
-        mpSceneRenderer->getScene()->getActiveCamera()->setTarget(glm::vec3(cameraTarget[0].asFloat(), cameraTarget[1].asFloat(), cameraTarget[2].asFloat()));
+        std::vector<ArgList::Arg> cameraTarget = mArgList.getValues("cameratarget");
+        if (!cameraTarget.empty())
+        {
+            mpSceneRenderer->getScene()->getActiveCamera()->setTarget(glm::vec3(cameraTarget[0].asFloat(), cameraTarget[1].asFloat(), cameraTarget[2].asFloat()));
+        }
     }
 }
 
