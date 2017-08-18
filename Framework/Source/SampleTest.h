@@ -87,7 +87,7 @@ namespace Falcor
         {
             LoadTimeCheckTask,
             MemoryCheckTask,
-            PerformanceCheckTask,
+            FPSCheckTask,
             ScreenCaptureTask,
             ShutdownTask
         };
@@ -339,6 +339,7 @@ namespace Falcor
             //  On Frame Begin.
             virtual void onFrameBegin(SampleTest * sampleTest)
             {
+
             }
 
             //  On Frame End.
@@ -364,42 +365,45 @@ namespace Falcor
             bool mIsActive = false;
         };
 
-        //
-        struct PerformanceCheckTimeTask : public TimeTask
+        struct FPSCaptureTimeTask : public TimeTask
         {
             //  
-            PerformanceCheckTimeTask(float perfomanceCheckRangeBeginTime, float perfomanceCheckRangeBeginEnd) : TimeTask(TaskType::PerformanceCheckTask, perfomanceCheckRangeBeginTime, perfomanceCheckRangeBeginEnd) {};
-
+            FPSCaptureTimeTask(float captureTime) : TimeTask(TaskType::FPSCheckTask, captureTime, captureTime), mCaptureTime(captureTime) {};
 
             //  Basic Check.
             virtual bool isActive(SampleTest * sampleTest)
             {
-                if (sampleTest->mCurrentTime >= mStartTime && sampleTest->mCurrentTime <= mEndTime)
+                return mCaptureTime <= sampleTest->mCurrentTime && !mIsTaskComplete;
+            }
+
+
+            //  On Frame Begin.
+            virtual void onFrameBegin(SampleTest * sampleTest)
+            {
+                if (mCaptureTime <= sampleTest->mCurrentTime && !mIsTaskComplete)
                 {
-                    return true;
-                }
-                else
-                {
-                    return false;
+                    //  Sneakily set the time of the program! For perfect pictures.
+                    sampleTest->mCurrentTime = mCaptureTime;
+
+                    sampleTest->toggleText(false);
                 }
             }
 
             //  On Frame Begin.
             virtual void onFrameBegin(SampleTest * sampleTest)
             {
-                
+
             }
 
             //  On Frame End.
             virtual void onFrameEnd(SampleTest * sampleTest)
             {
-                //  Task is Complete!
-                mIsTaskComplete = true;
+                sampleTest->frameRate().getAverageFrameTime();
             }
 
-            float mPerformanceCheckResults = 0;
-        };
+            float mCaptureTime = 0.0;
 
+        };
 
         struct ScreenCaptureTimeTask : public TimeTask
         {

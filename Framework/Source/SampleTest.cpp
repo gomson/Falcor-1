@@ -276,7 +276,33 @@ namespace Falcor
     //  Write the Memory Ranges Results.
     void SampleTest::writeMemoryRangesResults(rapidjson::Document & jsonTestResults)
     {
-        
+        auto & jsonAllocator = jsonTestResults.GetAllocator();
+
+        //  Write the time based performance checks.
+        rapidjson::Value mrArray(rapidjson::kArrayType);
+
+        //  
+        for (uint32_t i = 0; i < mTimeTasks.size(); i++)
+        {
+            std::shared_ptr<MemoryCheckTimeTask> memTask = std::dynamic_pointer_cast<MemoryCheckTimeTask>(mTimeTasks[i]);
+
+            if (memTask != nullptr)
+            {
+
+                rapidjson::Value scfFile;
+                scfFile.SetObject();
+                scfFile.AddMember("Start Check Time", memTask->mStartCheck.effectiveTime, jsonAllocator);
+                scfFile.AddMember("End Check Time", memTask->mEndCheck.effectiveTime, jsonAllocator);
+                scfFile.AddMember("Start Check Currently Used Virtual Memory", memTask->mStartCheck.currentlyUsedVirtualMemory, jsonAllocator);
+                scfFile.AddMember("End Check Currently Used Virtual Memory", memTask->mEndCheck.currentlyUsedVirtualMemory, jsonAllocator);
+                int64_t difference = (int64_t)memoryCheckRange.endCheck.currentlyUsedVirtualMemory - (int64_t)memoryCheckRange.startCheck.currentlyUsedVirtualMemory;
+                int64_t
+
+                mrArray.PushBack(scfFile, jsonAllocator);
+            }
+        }
+
+        jsonTestResults.AddMember("Memory Time Checks", mrArray, jsonAllocator);
     }
 
     //  Write the Performance Ranges Results.
@@ -290,10 +316,7 @@ namespace Falcor
         //  
         for (uint32_t i = 0; i < mFrameTasks.size(); i++)
         {
-            if (mFrameTasks[i]->mTaskType == TaskType::PerformanceCheckTask)
-            {
 
-            }
         }
 
         jsonTestResults.AddMember("Performance Frame Checks", pcfArray, jsonAllocator);
@@ -305,10 +328,7 @@ namespace Falcor
         //  
         for (uint32_t i = 0; i < mTimeTasks.size(); i++)
         {
-            if (mTimeTasks[i]->mTaskType == TaskType::PerformanceCheckTask)
-            {
 
-            }
         }
 
         jsonTestResults.AddMember("Performance Time Checks", pctArray, jsonAllocator);
@@ -523,10 +543,6 @@ namespace Falcor
             }
 
             //                        
-            for (uint32_t i = 0; i < perfframeRanges.size() / 2; i++)
-            {
-                std::shared_ptr<PerformanceCheckTimeTask> performanceCheckTimeTask = std::make_shared<PerformanceCheckTimeTask>(perfframeRanges[i].asFloat(), perfframeRanges[i + 1].asFloat());
-            }
             
         }
 
